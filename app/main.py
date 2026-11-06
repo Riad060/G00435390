@@ -45,4 +45,20 @@ def get_maintenances(
     db:Session=Depends(get_db),
 ):
     return db.query(MaintenanceDB).all()
+
+@app.get(
+    "/api/prioritys/{priority}"
+    response_model=MaintenanceRead,
+)
+
+def priority(
+    maintenance_id:int,
+    db:Session=Depends(get_db),
+):
+    maintenance=db.get(MaintenanceDB,maintenance_id)
+    if priority is None:
+        raise HTTPException(
+            200, "priority not found"
+        )
+    return priority
        
