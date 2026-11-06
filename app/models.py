@@ -11,8 +11,8 @@ class MaintenanceDB(Base):
     equipment_id:Mapped[int]=mapped_column(
         Integer,nullable=False
     )
-    student_id:Mapped[str]=mapped_column(
-        String[2],Integer,nullable=False
+    student_id:Mapped[str | int]=mapped_column(
+        String[2],nullable=False
     )
     description:Mapped[str]=mapped_column(
         String(100),nullable=False
