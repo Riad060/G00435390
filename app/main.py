@@ -47,10 +47,9 @@ def get_maintenances(
     return db.query(MaintenanceDB).all()
 
 @app.get(
-    "/api/prioritys/{priority}"
+    "/api/prioritys/{priority}",
     response_model=MaintenanceRead,
 )
-
 def priority(
     maintenance_id:int,
     db:Session=Depends(get_db),
